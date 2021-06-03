@@ -34,11 +34,12 @@
 
 <style>
 	.tab{
-		height: 80rpx;
+		height: 80px;
 		width: 100%;
 		position: fixed;
 		bottom: 0;
 		left: 0;
+		z-index: 20;
 		
 	}
 	.tab-box{
@@ -48,7 +49,7 @@
 		text-align: center;
 		height: 80rpx;
 		line-height: 80rpx;
-		font-size: 20rpx;
+		font-size: 25rpx;
 	}
 	.icon-box{
 		width: 60%;

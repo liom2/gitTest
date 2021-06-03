@@ -1,7 +1,7 @@
 <template>
 	<view class="listRight">
 		<view class="author-img">
-			<image class="img" src="../static/img/author.JPG"></image>
+			<image class="img" src="../static/img/author.jpg"></image>
 			<view class="iconfont icon-jiahao add" v-show="show" @click="hide">
 				
 			</view>
@@ -10,22 +10,22 @@
 			
 		</view>
 		<view class="number">
-			123
+			{{item.loveNum}}
 		</view>
 		<view class="iconfont icon-pinglun right-box">
 			
 		</view>
 		<view class="number">
-			123
+			{{item.commentNum}}
 		</view>
 		<view class="iconfont icon-fenxiang right-box">
 			
 		</view>
 		<view class="number">
-			123
+			{{item.shareNum}}
 		</view>
 		<view class="around">
-			<image class="img" src="../static/img/author.JPG"></image>
+			<image class="img" src="../static/img/author.jpg"></image>
 		</view>
 	</view>
 </template>
@@ -33,6 +33,7 @@
 <script>
 	export default {
 		name:"listRight",
+		props:['item'],
 		data() {
 			return {
 				show:true,
@@ -45,6 +46,9 @@
 			},
 			changeColor(){
 				this.color=this.color===''?"color:red;":"";
+			},
+			change(){
+				this.color="color:red;";
 			}
 		}
 	}
@@ -85,7 +89,7 @@
 	.around{
 		height: 50rpx;
 		width: 50rpx;
-		margin-top:15rpx ;
+		margin-top:15rpx;
 		animation: rotate 1.5s linear 0.2s infinite;
 	}
 	.add{
@@ -99,7 +103,7 @@
 		text-align: center;
 		line-height: 18rpx;
 		color: #FFFFFF;
-		font-size: 10rpx;
+		font-size: 9rpx;
 	}
 	
 	@keyframes rotate{

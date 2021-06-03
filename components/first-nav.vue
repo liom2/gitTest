@@ -44,7 +44,7 @@
 		color: #FFFFFF;
 		width: 20%;
 		text-align: center;
-		font-size: 20rpx;
+		font-size: 15rpx;
 	}
 	.middle{
 		text-align: center;

@@ -26,9 +26,9 @@
 	/*每个页面公共css */
 	@font-face {
 	  font-family: "iconfont"; /* Project id 2562349 */
-	  src: url('~@/static/fonts/iconfont.woff2?t=1622170820558') format('woff2'),
-	       url('~@/static/fonts/iconfont.woff?t=1622170820558') format('woff'),
-	       url('~@/static/fonts/iconfont.ttf?t=1622170820558') format('truetype');
+	  src: url('~@/static/fonts/iconfont.woff2?t=1622687908628') format('woff2'),
+	       url('~@/static/fonts/iconfont.woff?t=1622687908628') format('woff'),
+	       url('~@/static/fonts/iconfont.ttf?t=1622687908628') format('truetype');
 	}
 	
 	.iconfont {
@@ -37,6 +37,14 @@
 	  font-style: normal;
 	  -webkit-font-smoothing: antialiased;
 	  -moz-osx-font-smoothing: grayscale;
+	}
+	
+	.icon-you:before {
+	  content: "\e68b";
+	}
+	
+	.icon-dingwei_huaban1:before {
+	  content: "\e60a";
 	}
 	
 	.icon-pinglun:before {

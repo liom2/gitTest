@@ -1,27 +1,80 @@
 <template>
 	<view class="videoPlayer">
 		<!-- https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/360e4b20-4f4b-11eb-8a36-ebb87efcf8c0.mp4 -->
-		<video class="videoDiv" :src="video.src"
+		<video id="myVideo" class="videoDiv" :src="video.src"
 			@error="videoErrorCallback" controls="true"
-			:loop="false">
+			:loop="false" :autoplay="autoPlay"
+			objectFit="contain"
+			@click="click">
 			
 		</video>
 	</view>
 </template>
 
 <script>
+	var timer=null;
 	export default {
 		name:"videoPlayer",
-		props:['video'],
+		props:['video','index'],
 		data() {
 			return {
-				
+				play:false,
+				dbClick:false,
+				autoPlay:false
 			};
+		},
+		onReady(){
+			this.videoContext=uni.createVideoContext('myVideo',this);
+		},
+		created(){
+			//console.log("index=="+this.index);
+			this.auto();
 		},
 		methods:{
 			videoErrorCallback:function(e) {
 				console.log("视频错误信息");
 				console.log(e.target.errMsg);
+			},
+			player(){
+				if(this.play===false){
+					this.videoContext.seek(0);
+					this.videoContext.play();
+					this.play=true;
+				}
+			},
+			pause(){
+				if(this.play===true){
+					this.videoContext.pause();
+					this.play=false;
+				}
+			},
+			playThis(){
+				if(this.play===false){
+					this.videoContext.play();
+					this.play=true;
+				}
+			},
+			click(){
+				clearTimeout(timer);
+				this.dbClick= !this.dbClick;
+				timer=setTimeout(()=>{
+					if(this.dbClick){
+						if(this.play===false){
+							this.playThis();
+						}else{
+							this.pause();
+						}
+					}else{
+						this.$emit('changeClick')
+					}
+					this.dbClick=false;
+				},300);
+				
+			},
+			auto(){
+				if(this.index===0){
+					this.autoPlay=true;
+				}
 			}
 		}
 	}

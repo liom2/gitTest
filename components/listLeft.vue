@@ -1,14 +1,14 @@
 <template>
 	<view class="listLeft">
 		<view class="author">
-			薛之谦
+			{{item.author}}
 		</view>
 		<view class="title">
-			演员
+			{{item.title}}
 		</view>
 		<view class="box">
 			<view class="music">
-				@该配合你演出的我演视而不见@
+				{{item.music}}
 			</view>
 		</view>
 		
@@ -18,6 +18,9 @@
 <script>
 	export default {
 		name:"listLeft",
+		props:[
+			'item'
+		],
 		data() {
 			return {
 				
@@ -34,13 +37,14 @@
 		color: #FFFFFF;
 	}
 	.author{
+		padding-top: 20rpx;
 		height: 35rpx;
 		line-height: 35rpx;
-		font-size: 17rpx;
+		font-size: 25rpx;
 	}
 	.title{
 		line-height: 22rpx;
-		font-size: 12rpx;
+		font-size: 20rpx;
 		width: 100%;
 		word-wrap: break-word;
 	}
@@ -51,8 +55,8 @@
 	.music{
 		height: 35rpx;
 		line-height: 35rpx;
-		font-size: 12rpx;
-		width: 190rpx;
+		font-size: 20rpx;
+		width: 350rpx;
 		animation: music 4s linear 0.2s infinite;
 	}
 	
